@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Fun</title>
+    <style>
+        /* Fullscreen center alignment */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #fddedc;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        /* Container styling without border */
+        .container {
+            position: relative;
+            width: 80%;
+            height: 80vh;
+            background-color: transparent; /* Transparent background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 2; /* Bring container above background */
+        }
+
+        /* Speech bubble with typing effect */
+        .speech-bubble {
+            padding: 20px;
+            border: 2px solid #f5b5a7;
+            border-radius: 15px;
+            background-color: #fff6f4;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #854b36;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .typing-text {
+            border-right: 2px solid #854b36;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+            animation: typing 3s steps(22) forwards, blink 0.5s step-end infinite alternate;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+
+        /* Tail of speech bubble */
+        .speech-bubble::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 20%;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 15px solid #fff6f4;
+            margin-top: -2px;
+        }
+
+        /* Icon styling */
+        .icon {
+            width: 200px;
+            height: 200px;
+            animation: bounce 1s infinite;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        /* Bounce animation for icon */
+        @keyframes bounce {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(10deg); }
+        }
+
+        /* Hover effect on icon */
+        .icon-envelope:hover {
+            transform: scale(1.15) rotate(15deg);
+            filter: drop-shadow(0 0 10px rgba(255, 165, 0, 0.5));
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Container for speech bubble and icon -->
+    <div class="container">
+        <div class="speech-bubble">
+            <span class="typing-text">Hai, ada surat buat kamu nih</span>
+        </div>
+        <a href="page2.html"> <!-- Replace with desired URL -->
+            <img src="icon/iconn1.gif" alt="Envelope" class="icon icon-envelope">
+        </a>
+    </div>
+</body>
+</html>

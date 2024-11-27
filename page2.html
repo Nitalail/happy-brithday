@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Fun - Page 2</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #fddedc;
+            overflow: hidden;
+            font-family: 'Georgia', serif;
+            position: relative;
+        }
+
+        .container {
+            position: relative;
+            width: 400px; /* Ukuran disesuaikan dengan ukuran card sebelumnya */
+            height: auto; /* Ukuran disesuaikan agar konten pas */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 30px; /* Sesuaikan padding dengan card sebelumnya */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .content {
+            text-align: center;
+            z-index: 10;
+        }
+
+        .content img {
+            width: 270px; /* Sesuaikan dengan ukuran gambar pada card */
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .content h2 {
+            font-size: 1.5em; /* Sesuaikan ukuran font */
+            color: #854b36;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .content p {
+            font-size: 1em; /* Ukuran font disesuaikan */
+            color: #854b36;
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+
+        .content button {
+            padding: 10px 20px; /* Sesuaikan dengan ukuran tombol */
+            border: none;
+            border-radius: 25px; /* Sesuaikan dengan tombol sebelumnya */
+            background-color: #ffb6b9; /* Warna tombol sesuai */
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px; /* Sesuaikan ukuran font tombol */
+            transition: background-color 0.3s ease, transform 0.2s;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            margin: 15px;
+        }
+
+        .content button:hover {
+            background-color: #ff7f7f; /* Warna tombol saat hover */
+            transform: scale(1.05);
+        }
+
+        /* Menonaktifkan seleksi teks */
+        body {
+            -webkit-user-select: none; /* Safari */
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Chrome, Opera, and Edge */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="content">
+            <img id="gifImage" src="icon/iconn2.gif" alt="Cute Animal">
+            <h2>Hallo!</h2>
+            <p>Kamu tuh <strong>Khoerul Anam Ihsan</strong> kan?</p>
+            <button id="btnYes" onclick="goToNextPage()">Ya, benar</button>
+            <button id="btnNo" onclick="shakeButton()">Bukan</button>
+        </div>
+    </div>
+
+    <script>
+        const gifImage = document.getElementById('gifImage');
+        const btnNo = document.getElementById('btnNo');
+
+        function reloadGif() {
+            const src = gifImage.src;
+            gifImage.src = '';
+            gifImage.src = src;
+        }
+
+        setInterval(reloadGif, 2500);
+
+        function goToNextPage() {
+            window.location.href = 'page3.html';
+        }
+
+        function shakeButton() {
+            const randomX = Math.random() * 100 - 50;
+            const randomY = Math.random() * 100 - 50;
+            btnNo.style.transform = `translate(${randomX}px, ${randomY}px)`;
+            setTimeout(() => {
+                btnNo.style.transform = 'translate(0, 0)';
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
